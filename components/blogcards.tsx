@@ -1,11 +1,12 @@
 // ./components/blogcards.tsx
 
 import { NextPage } from 'next';
+import Link from 'next/link';
 
 export interface Post {
-  index: number;
   title: string;
   content: string;
+  slug: string;
 }
 
 interface Props {
@@ -14,9 +15,13 @@ interface Props {
 
 const BlogCard: NextPage<Props> = ({ post }) => {
   return (
-    <div className='flex-col w-2/3 justify-center h-auto m-2' >
-      <h2 className='text-3xl font-bold underline flex items-center justify-center'>{post.title}</h2>
-      <p className='m-6'>{post.content}</p>
+    <div className='relative flex-col w-1/2 justify-center  m-2 h-40 bg-zinc-900 p-2 rounded-md'>
+        <h2 className='relative text-3xl font-bold  flex items-center justify-center'>{post.title}</h2>
+        <p className='mt-5'>{post.content}</p>
+            <Link href={'/blogs/' + post.slug} className='w-max block'>
+                <button className='bg-zinc-600 rounded-lg p-2 absolute bottom-0 right-10'>Read more</button>
+
+            </Link>
     </div>
   );
 };
