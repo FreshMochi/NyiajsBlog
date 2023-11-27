@@ -39,6 +39,5 @@ const Blogs: NextPage<Props> = () => {
   );
 };
 
-//test
 
 export default Blogs;
