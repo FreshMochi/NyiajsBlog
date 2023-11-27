@@ -2,11 +2,7 @@
 
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-
-interface Post {
-  title: string;
-  content: string;
-}
+import BlogCard, { Post } from '@/components/blogcards';
 
 interface Props {}
 
@@ -28,17 +24,14 @@ const Blogs: NextPage<Props> = () => {
   }, []); // Empty dependency array ensures useEffect runs only once on component mount
 
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center'>
       {posts.map((post, index) => (
-        <div key={index}>
-          <h2>{post.title}</h2>
-          <p>{post.content}</p>
-        </div>
+        <BlogCard key={index} post={post}/>
       ))}
     </div>
   );
 };
 
-// testing
+
 
 export default Blogs;
