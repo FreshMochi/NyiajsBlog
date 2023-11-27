@@ -1,30 +1,13 @@
 // pages/posts.tsx
 
-import { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import { GetStaticProps, NextPage } from 'next';
 import BlogCard, { Post } from '@/components/blogcards';
 
 interface Props {
-  posts: Post[]
+  posts: Post[];
 }
 
-const Blogs: NextPage<Props> = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/api/posts');
-        const data = await response.json();
-        setPosts(data.posts || []); // Ensure posts is defined or set it to an empty array
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []); // Empty dependency array ensures useEffect runs only once on component mount
-
+const Blogs: NextPage<Props> = ({ posts }) => {
   return (
     <div className='space-y-5 flex-col flex items-center justify-center'>
       {posts.map((post) => (
@@ -34,6 +17,28 @@ const Blogs: NextPage<Props> = () => {
   );
 };
 
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  try {
+    // Fetch data from MongoDB
+    const response = await fetch('http://localhost:3000/api/posts');
+    const data = await response.json();
 
+    // Return data as props
+    return {
+      props: {
+        posts: data.posts || [],
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+
+    // Return empty array in case of an error
+    return {
+      props: {
+        posts: [],
+      },
+    };
+  }
+};
 
 export default Blogs;
