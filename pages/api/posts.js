@@ -6,9 +6,9 @@ export default async function handler(req, res) {
   try {
     // Connect to MongoDB
     await connectToMongoDB();
-    console.log('Connected to MongoDB'); // Log connection status
-
-    const collection = client.db().collection("exercises");
+    console.log(); // Log connection status
+    
+    const collection = client.db(process.env.DB).collection(process.env.COLLECTION);
 
     if (req.method === 'POST') {
       const { title, content } = req.body;
