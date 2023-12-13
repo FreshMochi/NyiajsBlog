@@ -13,6 +13,9 @@ interface PostsApiResponse {
 
 export const getStaticProps = async () => {
   try {
+    // Simulate a delay of 2 seconds before fetching data
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+
     // Fetch data from MongoDB
     const response = await fetch('http://localhost:3000/api/posts');
     const { posts }: PostsApiResponse = await response.json();
