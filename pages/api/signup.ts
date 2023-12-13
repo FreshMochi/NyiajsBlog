@@ -40,6 +40,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(201).json({ success: true, message: 'Post created successfully' });
         break;
 
+        case 'GET':
+        // Handle GET request to retrieve posts
+        const posts = await collection.find({}).toArray();
+        res.status(200).json({ success: true, posts });
+        break;
+
       // Add cases for other HTTP methods if needed
 
       default:
