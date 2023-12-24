@@ -10,7 +10,7 @@ export default function Home() {
     >
       
       <>
-      Hello
+      <iframe src='https://my.spline.design/untitled-1431b0f48f555bb8967e93256535b435/' frameborder='0' width='100%' height='600px'></iframe>
       </>
     </main>
   )
