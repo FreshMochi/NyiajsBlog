@@ -10,6 +10,8 @@ interface RouterWrapperProps {
 const RouterWrapper = ({ children }: RouterWrapperProps) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  // Check if the current route is the home page ("/")
+  const isHomePage = router.pathname === "/";
 
   useEffect(() => {
     const handleStart = () => {

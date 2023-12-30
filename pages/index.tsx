@@ -1,17 +1,31 @@
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import bgImg from '../public//Wallpaper.jpg'
+import Image from "next/image";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const style = {
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+  }
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24  ${inter.className}`}
-    >
-      
-      <>
-      <iframe src='https://my.spline.design/untitled-1431b0f48f555bb8967e93256535b435/' frameborder='0' width='100%' height='600px'></iframe>
-      </>
-    </main>
+    <div className={'w-full max-w-96 relative flex'}>
+      <div className={`blur-sm -z-50`}>
+        <Image
+        sizes='full'
+        style={style}
+        src={bgImg} 
+        priority
+        alt="Hero Image"/>
+      </div>
+      <div className='absolute' >
+        <h1>
+
+        Happy
+        </h1>
+      </div>
+    </div>
   )
 }
