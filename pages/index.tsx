@@ -10,6 +10,7 @@ export default function Home() {
     <div className={style.container}>
       <div className={`blur-sm overflow-x-hidden`}>
         <Image
+        style={{overflow: 'hidden'}}
         priority
         src={bgImg} 
         alt="Hero Image"/>
