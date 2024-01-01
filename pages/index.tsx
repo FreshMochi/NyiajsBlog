@@ -8,8 +8,9 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <div className={style.container}>
-      <div className={`blur-sm`}>
+      <div className={`blur-sm overflow-x-hidden`}>
         <Image
+        priority
         src={bgImg} 
         alt="Hero Image"/>
       </div>
