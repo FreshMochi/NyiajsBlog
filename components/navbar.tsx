@@ -1,9 +1,9 @@
-// Navbar.tsx
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from "framer-motion";
-import style from '../styles/nav.module.css'
+import style from '../styles/nav.module.css';
 
+// Define motion variants for animations
 const container = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -24,75 +24,34 @@ const item = {
   }
 };
 
-
 const Navbar: React.FC = () => {
-  const [isMobileView, setIsMobileView] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth < 767);
-    };
-
-    handleResize(); // Set initial value
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  return (
-    <div>
-      {isMobileView ? <MobileNav /> : <DesktopNav />}
-    </div>
-  );
-};
-
-const MobileNav: React.FC = () => {
-  const [showDisplay, setShowDisplay] = useState(false);
-  
-
-  const handleBtn = () => {
-    setShowDisplay(!showDisplay)
-    setTimeout(() => {
-      console.log(showDisplay)
-    }, 1000)
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
   }
 
-  const classMobUL = 'w-screen flex flex-end space-x-4 justify-end pr-6 items-center '
-
   return (
-  <nav className='w-screen relative h-20 bg-red-800 flex'>
-    { }
-      <button onClick={handleBtn} >{showDisplay? "Hello": "goodbye"}</button>
-
-      <ul className={classMobUL}>
-        <li className='m-0 p-0'>
-          <Link href="/">
-            Home
-          </Link>
+    <nav className={`${style.navbar}  ${showMobileMenu ? ' ' + style.displayMNav : ''}`}>
+      <button onClick={toggleMobileMenu} className={style.navbarToggle}>
+        {showMobileMenu ? "Close Menu" : "Menu"}
+      </button>
+      <ul className={`${style.navLinks} ${showMobileMenu ? style.navActive : ''}`}>
+        <li className={style.navItem}>
+          <Link href="/">Home</Link>
         </li>
-        <li className='m-0 p-0'>
-          <Link href="/about">
-        About
-          </Link>
+        <li className={style.navItem}>
+          <Link href="/about">About</Link>
         </li>
-        <li className='m-0 p-0'>
-          <Link href="/projects">
-            Projects
-          </Link>
+        <li className={style.navItem}>
+          <Link href="/projects">Projects</Link>
         </li>
-        <li className='m-0 p-0'>
-          <Link href="/blogs">
-            Blog
-          </Link>
+        <li className={style.navItem}>
+          <Link href="/blogs">Blog</Link>
         </li>
       </ul>
-    </nav>)
-};
-
-const DesktopNav: React.FC = () => {
-  return <p>Desktop</p>
+    </nav>
+  );
 };
 
 export default Navbar;
