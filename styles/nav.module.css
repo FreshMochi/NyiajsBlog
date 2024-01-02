@@ -1,0 +1,57 @@
+.navbar {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    background-color: #33333300;
+    padding: 0;
+    margin: 0;
+    z-index: 30;
+  }
+
+  .displayMNav{
+    position: relative;
+    background-color: #333333;
+    height: 100vh;
+  }
+  
+  .navbarToggle {
+    display: none;
+    position: absolute;
+    z-index: 20;
+    right: 2rem;
+    top: 0.5rem;
+    /* Other styles for your menu button */
+  }
+  
+  .navLinks {
+    position: absolute;
+    display: flex;
+    height: 100vh;
+    list-style: none;
+    /* Add additional styles as needed */
+  }
+  
+  .navItem {
+    margin-right: 20px;
+    /* Other styles for your nav items */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 767px) {
+    .navbarToggle {
+      display: block;
+    }
+  
+    .navLinks {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      /* Styles for mobile menu */
+    }
+  
+    .navActive {
+      display: flex;
+    }
+  }
+  

@@ -8,17 +8,21 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <div className={style.container}>
-      <div className={`blur-sm overflow-x-hidden`}>
+      <div className={`blur-sm overflow-x-hidden absolute -z-50`}>
         <Image
         style={{overflow: 'hidden'}}
         priority
         src={bgImg} 
         alt="Hero Image"/>
       </div>
-      <div className='absolute' >
+      <div className='' >
         <h1>
-
-        Happy
+          Hello
+        </h1>
+      </div>
+      <div className='' >
+        <h1>
+          header
         </h1>
       </div>
     </div>
