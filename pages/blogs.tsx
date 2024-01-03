@@ -20,10 +20,13 @@ export const getStaticProps = async () => {
     const response = await fetch('http://localhost:3000/api/posts');
     const { posts }: PostsApiResponse = await response.json();
 
+    // Reverse the posts array
+    const reversedPosts = posts.reverse();
+
     // Return data as props
     return {
       props: {
-        posts: posts || [],
+        posts: reversedPosts || [],
       },
     };
   } catch (error) {
