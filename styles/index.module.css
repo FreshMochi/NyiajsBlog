@@ -1,5 +1,5 @@
 .container {
-    height: 100vh;
+    min-height: 100vh;
     width: auto;
     overflow-x: hidden;
     -webkit-touch-callout: none; /* iOS Safari */
@@ -8,6 +8,13 @@
        -moz-user-select: none; /* Old versions of Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none;
+}
+
+.heroContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
 }
 
 @media (min-width: 767px ) {

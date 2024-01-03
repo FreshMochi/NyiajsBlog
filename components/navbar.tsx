@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { motion } from "framer-motion";
 import style from '../styles/nav.module.css';
 
 // Define motion variants for animations
@@ -31,25 +30,32 @@ const Navbar: React.FC = () => {
     setShowMobileMenu(!showMobileMenu);
   }
 
+  const closeMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  }
+
   return (
-    <nav className={`${style.navbar}  ${showMobileMenu ? ' ' + style.displayMNav : ''}`}>
-      <button onClick={toggleMobileMenu} className={style.navbarToggle}>
-        {showMobileMenu ? "Close Menu" : "Menu"}
-      </button>
-      <ul className={`${style.navLinks} ${showMobileMenu ? style.navActive : ''}`}>
-        <li className={style.navItem}>
-          <Link href="/">Home</Link>
-        </li>
-        <li className={style.navItem}>
-          <Link href="/about">About</Link>
-        </li>
-        <li className={style.navItem}>
-          <Link href="/projects">Projects</Link>
-        </li>
-        <li className={style.navItem}>
-          <Link href="/blogs">Blog</Link>
-        </li>
-      </ul>
+    <nav className={`${style.navbar}`}>
+
+        <button onClick={toggleMobileMenu} className={style.navbarToggle}>
+          {showMobileMenu ? "Close Menu" : "Menu"}
+        </button>
+      <div className={`${showMobileMenu ? ' ' + style.showDisplayMNav : ' ' + style.hideDisplayMNav}`}>
+        <ul className={`${style.navLinks} ${showMobileMenu ? style.navActive : ''}`}>
+          <li className={style.navItem} onClick={closeMenu}>
+            <Link href="/">Home</Link>
+          </li>
+          <li className={style.navItem} onClick={closeMenu}>
+            <Link href="/about">About</Link>
+          </li>
+          <li className={style.navItem} onClick={closeMenu}>
+            <Link href="/projects">Projects</Link>
+          </li>
+          <li className={style.navItem} onClick={closeMenu}>
+            <Link href="/blogs">Blog</Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
