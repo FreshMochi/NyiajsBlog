@@ -38,7 +38,15 @@ export default function Home() {
       </div>
       <div className={style.contentSec00}>
         <div className={style.contentPrint}>
-          <p>{process.env.INDEXCONTENT}</p>
+          <p>
+          Welcome to my Nyiaj's blog. 
+          Here, I will document my work and which tech stacks I've used.
+          I am inspiried by great talents in the world. 
+          One day I wish to be able to help those with not just talents, 
+          but dedication to keep working on their crafts. 
+          One day I hope to encourage generations to come and
+          display their crafts. I wish to give back to what the community have given me.
+          </p>
         </div>
       </div>
       
