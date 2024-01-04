@@ -30,10 +30,15 @@ export default function Home() {
           src={jukkeIcon} 
           alt="icon"/>
         </div>
-        <div className='' >
-          <h1>
-            header
-          </h1>
+        <div className={style.heroContent} >
+          <p>
+            Nyiaj's Blog
+          </p>
+        </div>
+      </div>
+      <div className={style.contentSec00}>
+        <div className={style.contentPrint}>
+          <p></p>
         </div>
       </div>
       
