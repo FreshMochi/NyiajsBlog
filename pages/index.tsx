@@ -38,7 +38,7 @@ export default function Home() {
       </div>
       <div className={style.contentSec00}>
         <div className={style.contentPrint}>
-          <p></p>
+          <p>{process.env.INDEXCONTENT}</p>
         </div>
       </div>
       
