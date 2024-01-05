@@ -2,11 +2,25 @@ import { Inter } from 'next/font/google'
 import style from '../styles/index.module.css'
 import bgImg from '../public//Wallpaper.jpg'
 import jukkeIcon from '../public/Jukke-icon.svg'
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+    // State to control the visibility of the iframe
+    const [showIframe, setShowIframe] = useState(false);
+
+    useEffect(() => {
+      // Set a timer to change the showIframe state after 1 second
+      const timer = setTimeout(() => {
+        setShowIframe(true); // After 1 second, set showIframe to true
+      }, 1000);
+  
+      // Clear the timer if the component unmounts before the timer finishes
+      return () => clearTimeout(timer);
+    }, []); // The empty dependency array ensures this effect runs only once after the initial render
+  
   return (
     <div className={style.container}>
       <div className={style.heroContainer}>
@@ -50,19 +64,23 @@ export default function Home() {
       </div>
 
       <div className={style.contentSec01}>
-        <h2 style={{textAlign: 'center'}}>About Me</h2>
-        <div>
-          <p>
-            I am an aspiring self-taught web-developer. 
-            I've worked with a non profit orgainzation
-            and was able to quadruple their average application submission. 
-            There will be more websites to come as I will be building
-            web-applications for small businesses.
-          </p>
-
-        </div>
         <>
           <h2 style={{textAlign: 'center'}}>Tech Stack</h2>
+          <div>
+          <iframe style={{margin: '0 auto'}} src='https://my.spline.design/untitled-56540e8deb71882ed4a5525ed41768c7/' 
+            width='200px' height='200px'></iframe>
+            <ul>
+              <li>Html</li>
+              <li>CSS</li>
+              <li>Framer Motion</li>
+              <li>Spline</li>
+              <li>JavaScript</li>
+              <li>React & NEXTJS</li>
+              <li>NodeJS</li>
+              <li>MongoDB</li>
+              <li>Github</li>
+            </ul>
+          </div>
         </>
       </div>
       
