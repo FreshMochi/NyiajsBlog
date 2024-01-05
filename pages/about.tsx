@@ -16,7 +16,6 @@ export default function About() {
 
   return (
     <div>
-      {/* Conditionally render the iframe based on the showIframe state */}
       {showIframe && (
         <iframe 
           src='https://my.spline.design/untitledcopy-8a5070dd22dbb18d54ccbced2e95dff2/' 

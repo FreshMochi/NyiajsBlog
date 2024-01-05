@@ -47,6 +47,15 @@
     align-content: center;
 }
 
+.contentSec01{
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: aliceblue;
+    width: 95%;
+    color: black;
+    padding: 5px 40px 30px 40px;
+}
+
 @media (min-width: 767px ) {
     .container {height: 200px;}
 }

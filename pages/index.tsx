@@ -12,7 +12,7 @@ export default function Home() {
       <div className={style.heroContainer}>
         <div 
         className={`
-        blur-sm 
+        blur 
         overflow-x-hidden 
         absolute -z-50
         
@@ -23,6 +23,7 @@ export default function Home() {
           src={bgImg} 
           alt="Hero Image"/>
         </div>
+
         <div className={style.iconSVG} >
         <Image
           style={{overflow: 'hidden', height: 'inherit'}}
@@ -36,18 +37,33 @@ export default function Home() {
           </p>
         </div>
       </div>
+
       <div className={style.contentSec00}>
         <div className={style.contentPrint}>
           <p>
-          Welcome to my Nyiaj's blog. 
-          Here, I will document my work and which tech stacks I've used.
-          I am inspiried by great talents in the world. 
-          One day I wish to be able to help those with not just talents, 
-          but dedication to keep working on their crafts. 
-          One day I hope to encourage generations to come and
-          display their crafts. I wish to give back to what the community have given me.
+          Welcome to Nyiaj's blog. 
+          Here, I will document my work.
+          I am inspiried by great talented individuals in the world. 
+          I wish to give back what the community have given me.
           </p>
         </div>
+      </div>
+
+      <div className={style.contentSec01}>
+        <h2 style={{textAlign: 'center'}}>About Me</h2>
+        <div>
+          <p>
+            I am an aspiring self-taught web-developer. 
+            I've worked with a non profit orgainzation
+            and was able to quadruple their average application submission. 
+            There will be more websites to come as I will be building
+            web-applications for small businesses.
+          </p>
+
+        </div>
+        <>
+          <h2 style={{textAlign: 'center'}}>Tech Stack</h2>
+        </>
       </div>
       
     </div>

@@ -18,6 +18,14 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(0deg, rgb(32, 25, 11) 0%, rgb(23, 23, 23) 67%, rgba(117,97,60,1) 100%);
+  background: linear-gradient(0deg, rgba(23, 23, 23, 1) 1%, rgba(32, 25, 11, 1) 9%, rgb(26, 17, 1) 90%, rgb(255, 255, 255) 100%);
     overflow-x: hidden;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 26px;
 }
