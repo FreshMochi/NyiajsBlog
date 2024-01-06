@@ -1,5 +1,7 @@
 import { Inter } from 'next/font/google'
 import style from '../styles/index.module.css'
+import bgImg from '../public//Wallpaper.jpg'
+import jukkeIcon from '../public/Jukke-icon.svg'
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 
@@ -32,6 +34,7 @@ export default function Home() {
           <Image
           style={{overflow: 'hidden'}}
           priority
+          src={bgImg} 
           alt="Hero Image"/>
         </div>
 
@@ -39,6 +42,7 @@ export default function Home() {
         <Image
           style={{overflow: 'hidden', height: 'inherit'}}
           priority
+          src={jukkeIcon} 
           alt="icon"/>
         </div>
         <div className={style.heroContent} >
