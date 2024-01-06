@@ -1,7 +1,5 @@
 import { Inter } from 'next/font/google'
 import style from '../styles/index.module.css'
-import bgImg from '../public//Wallpaper.jpg'
-import jukkeIcon from '../public/Jukke-icon.svg'
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 
@@ -34,7 +32,6 @@ export default function Home() {
           <Image
           style={{overflow: 'hidden'}}
           priority
-          src={bgImg} 
           alt="Hero Image"/>
         </div>
 
@@ -42,7 +39,6 @@ export default function Home() {
         <Image
           style={{overflow: 'hidden', height: 'inherit'}}
           priority
-          src={jukkeIcon} 
           alt="icon"/>
         </div>
         <div className={style.heroContent} >
@@ -65,7 +61,7 @@ export default function Home() {
 
       <div className={style.contentSec01}>
         <>
-          <h2 style={{textAlign: 'center'}}>Tech Stack</h2>
+          <h2 style={{textAlign: 'center'}}>Tech Stack</h2>git
           <div>
             { showIframe ? <iframe style={{margin: '0 auto'}} src='https://my.spline.design/untitled-56540e8deb71882ed4a5525ed41768c7/' 
             width='200px' height='200px'></iframe> : '' }
