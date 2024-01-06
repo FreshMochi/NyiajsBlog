@@ -78,6 +78,7 @@ export default function Home() {
               <li>React & NEXTJS</li>
               <li>NodeJS</li>
               <li>MongoDB</li>
+              <li>Google Firebase</li>
               <li>Github</li>
             </ul>
           </div>
