@@ -65,7 +65,7 @@ export default function Home() {
 
       <div className={style.contentSec01}>
         <>
-          <h2 style={{textAlign: 'center'}}>Tech Stack</h2>git
+          <h2 style={{textAlign: 'center'}}>Tech Stack</h2>
           <div>
             { showIframe ? <iframe style={{margin: '0 auto'}} src='https://my.spline.design/untitled-56540e8deb71882ed4a5525ed41768c7/' 
             width='200px' height='200px'></iframe> : '' }
