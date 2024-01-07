@@ -4,6 +4,7 @@ import bgImg from '../public//Wallpaper.jpg'
 import jukkeIcon from '../public/Jukke-icon.svg'
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
+import MyForm from '@/components/form';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -86,6 +87,9 @@ export default function Home() {
             </div>
           </div>
         </>
+      </div>
+      <div className={style.signForm}>
+        <MyForm/>
       </div>
       
     </div>

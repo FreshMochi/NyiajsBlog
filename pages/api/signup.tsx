@@ -1,6 +1,6 @@
 // "./pages/api/signup.tsx"
 import { NextApiRequest, NextApiResponse } from 'next';
-import { SOURCEFILE } from '../../config';
+import { connectToMongoDB, client } from '../../lib/mongodb';
 
 interface ProcessEnv {
   DB: string;
@@ -13,10 +13,10 @@ interface PostRequestBody {
   lname: string;
 }
 
-export default async function signup(req: NextApiRequest, res: NextApiResponse) {
-  const { connectToMongoDB, client } = await import(SOURCEFILE);
+export default async function signup(
+  req: NextApiRequest, 
+  res: NextApiResponse) {
 
-  // Now you can use connectToMongoDB and client
   try {
     await connectToMongoDB();
 
