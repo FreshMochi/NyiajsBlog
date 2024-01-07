@@ -69,7 +69,7 @@ export default function Home() {
           <h2 style={{textAlign: 'center'}}>Tech Stack</h2>
           <div style={{position: 'relative'}}>
             { showIframe ? <iframe style={{margin: '0 auto'}} src='https://my.spline.design/untitled-56540e8deb71882ed4a5525ed41768c7/' 
-            width='200px' height='200px'></iframe> : '' }
+            width='70%' height='70%'></iframe> : '' }
             <div style={{position: 'relative'}}>
               <ul className={style.techStack} >
                 <li>Html</li>

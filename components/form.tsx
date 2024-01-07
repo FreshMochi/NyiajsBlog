@@ -1,6 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 
-// Define the shape of the form data
 interface FormData {
   email: string;
   fname: string;
@@ -8,14 +7,13 @@ interface FormData {
 }
 
 export default function MyForm() {
-  // Initialize form state with an empty object of type FormData
   const [formData, setFormData] = useState<FormData>({
     email: '',
     fname: '',
     lname: '',
   });
+  const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
 
-  // Handle changes in input fields and update form state
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -24,21 +22,45 @@ export default function MyForm() {
     });
   };
 
-  // Handle form submission
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // You can add your form submission logic here
-    console.log('Form Data:', formData);
-    // Reset the form fields after submission
-    setFormData({
-      email: '',
-      fname: '',
-      lname: '',
-    });
+    
+    try {
+      // Send a POST request to the '/api/signup' endpoint with form data
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.status === 201) {
+        // Handle a successful submission
+        setSubmissionStatus('Success: Post created successfully');
+        // Reset the form fields after a successful submission
+        setFormData({
+          email: '',
+          fname: '',
+          lname: '',
+        });
+      } else {
+        // Handle errors from the API
+        const data = await response.json();
+        setSubmissionStatus(`Error: ${data.message}`);
+      }
+    } catch (error) {
+      // Handle network errors or unexpected issues
+      setSubmissionStatus('Error: Internal Server Error');
+      console.error('Error:', error);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{backgroundColor: 'lightblue',color: 'black'}}>
+    <div>
+      {/* Display submission status (success or error) */}
+      {submissionStatus && <p>{submissionStatus}</p>}
+      <form onSubmit={handleSubmit} style={{backgroundColor: 'lightblue',color: 'black'}}>
       <div>
         <label>Email:</label>
         <input
@@ -71,5 +93,6 @@ export default function MyForm() {
       </div>
       <button type="submit">Submit</button>
     </form>
+    </div>
   );
 }

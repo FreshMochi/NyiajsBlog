@@ -33,8 +33,6 @@
     justify-self: start;
     align-self: center;
     grid-column: 3/4;
-    height: 140px;
-    width: 170px;
 }
 
 .heroContent p {
