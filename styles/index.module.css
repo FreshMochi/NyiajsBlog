@@ -56,6 +56,20 @@
     padding: 5px 40px 30px 40px;
 }
 
+.techStack {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    height: inherit;
+    justify-content: center;
+}
+
+.techStack li {
+    height: 50px;
+}
+
 @media (min-width: 767px ) {
     .container {height: 200px;}
 }

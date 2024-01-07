@@ -57,7 +57,7 @@ export default function Home() {
           <p>
           Welcome to Nyiaj's blog. 
           Here, I will document my work.
-          I am inspiried by great talented individuals in the world. 
+          I am inspiried by great talented individuals around the world. 
           I wish to give back what the community have given me.
           </p>
         </div>
@@ -66,21 +66,24 @@ export default function Home() {
       <div className={style.contentSec01}>
         <>
           <h2 style={{textAlign: 'center'}}>Tech Stack</h2>
-          <div>
+          <div style={{position: 'relative'}}>
             { showIframe ? <iframe style={{margin: '0 auto'}} src='https://my.spline.design/untitled-56540e8deb71882ed4a5525ed41768c7/' 
             width='200px' height='200px'></iframe> : '' }
-            <ul>
-              <li>Html</li>
-              <li>CSS</li>
-              <li>Framer Motion</li>
-              <li>Spline</li>
-              <li>JavaScript</li>
-              <li>React & NEXTJS</li>
-              <li>NodeJS</li>
-              <li>MongoDB</li>
-              <li>Google Firebase</li>
-              <li>Github</li>
-            </ul>
+            <div style={{position: 'relative'}}>
+              <ul className={style.techStack} >
+                <li>Html</li>
+                <li>CSS</li>
+                <li>Framer Motion</li>
+                <li>Spline</li>
+                <li>JavaScript</li>
+                <li>React & NEXTJS</li>
+                <li>NodeJS</li>
+                <li>MongoDB</li>
+                <li>Google Firebase</li>
+                <li>Github</li>
+              </ul>
+
+            </div>
           </div>
         </>
       </div>
