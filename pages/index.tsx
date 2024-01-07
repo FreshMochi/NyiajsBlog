@@ -41,7 +41,7 @@ export default function Home() {
 
         <div className={style.iconSVG} >
         <Image
-          style={{overflow: 'hidden', height: 'inherit'}}
+          style={{overflow: 'hidden', height: 'inherit', width: 'inherit'}}
           priority
           src={jukkeIcon} 
           alt="icon"/>
@@ -56,10 +56,9 @@ export default function Home() {
       <div className={style.contentSec00}>
         <div className={style.contentPrint}>
           <p>
-          Welcome to Nyiaj's blog. I am a self taught FullStack Developer.
-          I am here to
-          I am inspiried by great talented individuals around the world. 
-          I wish to give back what the community have given me.
+          Welcome to Nyiaj's blog. I'm a self-taught Full-Stack Developer, and here, 
+          I'll share my work and the inspiration I draw from talented individuals worldwide. 
+          My goal is to give back to the community that has supported me.
           </p>
         </div>
       </div>
@@ -69,7 +68,7 @@ export default function Home() {
           <h2 style={{textAlign: 'center'}}>Tech Stack</h2>
           <div style={{position: 'relative'}}>
             { showIframe ? <iframe style={{margin: '0 auto'}} src='https://my.spline.design/untitled-56540e8deb71882ed4a5525ed41768c7/' 
-            width='70%' height='70%'></iframe> : '' }
+            width='200px' height='220px'></iframe> : '' }
             <div style={{position: 'relative'}}>
               <ul className={style.techStack} >
                 <li>Html</li>

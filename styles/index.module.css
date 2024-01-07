@@ -1,6 +1,5 @@
 .container {
     min-height: 100vh;
-    width: auto;
     overflow-x: hidden;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -18,12 +17,13 @@
     gap: 10px;
     grid-template-columns: repeat(4, 1fr);
     height: 30vh;
+    width: inherit;
 }
 
 .iconSVG {
     grid-column: 1 / 3;
-    height: 140px;
-    width: 140px;
+    height: 160px;
+    width: 160px;
     align-self: center;
     justify-self: end;
     margin-left: 40px;
@@ -49,7 +49,6 @@
     margin: 0 auto;
     border-radius: 10px;
     background-color: aliceblue;
-    width: 95%;
     color: black;
     padding: 5px 40px 30px 40px;
 }
