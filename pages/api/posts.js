@@ -1,5 +1,5 @@
 // "./pages/api/posts.js"
-import { connectToMongoDB, client } from process.env.SOURCEFILE;
+import { connectToMongoDB, client } from '../../lib/mongodb';
 
 export default async function handler(req, res) {
   try {
