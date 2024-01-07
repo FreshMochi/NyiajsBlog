@@ -55,8 +55,8 @@ export default function Home() {
       <div className={style.contentSec00}>
         <div className={style.contentPrint}>
           <p>
-          Welcome to Nyiaj's blog. 
-          Here, I will document my work.
+          Welcome to Nyiaj's blog. I am a self taught FullStack Developer.
+          I am here to
           I am inspiried by great talented individuals around the world. 
           I wish to give back what the community have given me.
           </p>

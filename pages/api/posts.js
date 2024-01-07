@@ -1,5 +1,5 @@
 // "./pages/api/posts.js"
-import { connectToMongoDB, client } from '../../lib/mongodb';
+import { connectToMongoDB, client } from process.env.SOURCEFILE;
 
 export default async function handler(req, res) {
   try {
@@ -9,21 +9,6 @@ export default async function handler(req, res) {
     const collection = client.db(process.env.DB).collection(process.env.COLLECTION);
 
     switch (req.method) {
-      case 'POST':
-        const { title, content, slug } = req.body;
-
-        // Request validation
-        if (!title || !content || !slug) {
-          return res.status(400).json({ success: false, error: 'Bad Request', message: 'Title, content, and slug are required' });
-        }
-
-        // Insert new post into the collection
-        await collection.insertOne({ title, content, slug });
-
-        // Respond with success message
-        res.status(201).json({ success: true, message: 'Post created successfully' });
-        break;
-
       case 'GET':
         // Handle GET request to retrieve posts
         const posts = await collection.find({}).toArray();
