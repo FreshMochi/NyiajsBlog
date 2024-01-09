@@ -31,7 +31,7 @@
   
   .navbarToggle {
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 20;
     right: 2rem;
     top: 0.5rem;

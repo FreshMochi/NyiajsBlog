@@ -64,6 +64,7 @@ export default function MyForm() {
       <div>
         <label>Email:</label>
         <input
+          placeholder='Email'
           type="email"
           name="email"
           value={formData.email}
@@ -72,8 +73,9 @@ export default function MyForm() {
         />
       </div>
       <div>
-        <label>First Name (fname):</label>
+        <label>First Name:</label>
         <input
+        placeholder='First Name'
           type="text"
           name="fname"
           value={formData.fname}
@@ -82,8 +84,9 @@ export default function MyForm() {
         />
       </div>
       <div>
-        <label>Last Name (lname):</label>
+        <label>Last Name:</label>
         <input
+        placeholder='Last Name'
           type="text"
           name="lname"
           value={formData.lname}
