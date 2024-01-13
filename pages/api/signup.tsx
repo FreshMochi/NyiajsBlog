@@ -34,14 +34,16 @@
             message: 'Email, First Name, and Last Name are required',
           });
         } else {
-          const existingUser = await collection.findOne({ email });
+          const emailCount = await collection.countDocuments({ email });
 
-          if (existingUser) {
+          
+
+          if (emailCount >= 3) {
             // If the email exists, return an error response
             return res.status(400).json({
               success: false,
               error: 'Bad Request',
-              message: 'Email already exists',
+              message: 'Max of 3 of the same emails can only be sent.',
             });
           } else {
 

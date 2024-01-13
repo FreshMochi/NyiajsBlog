@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className='overflow-hidden'>
     <Navbar />
     <RouterWrapper>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
     </RouterWrapper>
     </div>
 )}

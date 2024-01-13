@@ -109,7 +109,7 @@ export default function MyForm() {
         </div>
         <div className={styles.inputWrapper}>
           <textarea
-            className={styles.inputField}
+            className={styles.inputField + " " + styles.textarea}
             onChange={handleChange}
             name="message"
             value={formData.message}
