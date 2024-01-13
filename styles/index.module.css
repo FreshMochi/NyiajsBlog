@@ -11,27 +11,35 @@
 
 
 .heroContainer{
+    position: relative;
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(3, 1fr);
     gap: 5px;
     grid-template-columns: repeat(4, 1fr);
     height: 30vh;
-    width: inherit;
+    width: 100%;
+}
+
+.heroBG {
+    position: relative;
+    z-index: -20;
+    width: auto;
+    height: 30vh;
 }
 
 .iconSVG {
-    grid-column: 1 / 3;
+    position: absolute;
+    grid-column: 2 / 3;
     height: 160px;
     width: 160px;
     align-self: center;
     justify-self: end;
-    margin-left: 40px;
 }
 
 .heroContent {
     justify-self: start;
     align-self: center;
+    position: absolute;
     grid-column: 3/4;
 }
 

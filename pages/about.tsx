@@ -16,13 +16,7 @@ export default function About() {
 
   return (
     <div>
-      {showIframe && (
-        <iframe 
-          src='https://my.spline.design/untitledcopy-8a5070dd22dbb18d54ccbced2e95dff2/' 
-          frameBorder='0' 
-          width='376px' 
-          height='400px'>
-        </iframe>
+      {showIframe && (''
       )}
     </div>
   );

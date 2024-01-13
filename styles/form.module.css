@@ -1,0 +1,44 @@
+.form {
+  height: 80vh;
+  width: 90%;
+  border-radius: 20px;
+  margin: 0 auto;
+  flex-flow: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 200px;
+  margin: 0 auto 30px auto;
+}
+
+.inputField {
+  position: relative;
+  background: transparent;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.labelField {
+  position: absolute;
+  width: inherit;
+  left: 5px; /* Adjust the left position as needed */
+  top: 5px; /* Adjust the top position to control the initial label position */
+  transition: top 0.3s ease, font-size 0.3s ease; /* Add font-size transition for smooth scaling */
+  pointer-events: none;
+  color: gray;
+}
+
+.holdLabel {
+  top: -20px;
+  font-size: 0.8em;
+}
+
+.inputField:focus + .labelField {
+  top: -20px; /* Move the label up in the -Y direction when input is selected */
+  font-size: 0.8em; /* Optionally, scale down the font size */
+  color: red;
+}

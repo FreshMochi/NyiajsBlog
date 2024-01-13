@@ -12,6 +12,7 @@
     email: string;
     fname: string;
     lname: string;
+    message: string;
   }
 
   export default async function signup(
@@ -24,7 +25,7 @@
       const collection = client!.db(process.env.DB as string).collection(process.env.SIGNUP as string);
 
       if (req.method === 'POST') {
-        const { email, fname, lname } = req.body as PostRequestBody;
+        const { email, fname, lname, message } = req.body as PostRequestBody;
         // Request validation
         if (!email || !fname || !lname) {
           return res.status(400).json({
@@ -33,10 +34,20 @@
             message: 'Email, First Name, and Last Name are required',
           });
         } else {
-          // Insert new post into the collection
-          await collection.insertOne({ email, fname, lname });
-          
+          const existingUser = await collection.findOne({ email });
 
+          if (existingUser) {
+            // If the email exists, return an error response
+            return res.status(400).json({
+              success: false,
+              error: 'Bad Request',
+              message: 'Email already exists',
+            });
+          } else {
+
+          // Insert new post into the collection
+          await collection.insertOne({ email, fname, lname, message });
+          
           // Send a thank you email
           const transporter = nodemailer.createTransport({
             service: 'gmail', 
@@ -63,6 +74,7 @@
           });
           res.status(201).json({ success: true, message: 'Post created successfully' });
         }
+      }
       }
 
     } catch (error: any) {

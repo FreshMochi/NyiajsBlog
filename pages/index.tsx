@@ -24,18 +24,14 @@ export default function Home() {
   
   return (
     <div className={style.container}>
-      <div className={style.heroContainer}>
+      <div className={style.heroContainer}
+      
+      >
         <div 
-        className={`
-        blur 
-        overflow-x-hidden 
-        absolute -z-50
-        
-        `}>
+        className='heroBG'>
           <Image
-          style={{overflow: 'hidden'}}
-          priority
           src={bgImg} 
+          fill
           alt="Hero Image"/>
         </div>
 
@@ -86,6 +82,12 @@ export default function Home() {
             </div>
           </div>
         </>
+      </div>
+      <div>
+        <h2>
+          Looking
+        </h2>
+        <p>Contact me on</p>
       </div>
       <div className={style.signForm}>
         <MyForm/>
