@@ -11,12 +11,15 @@
 
 .inputWrapper {
   position: relative;
-  width: 200px;
-  margin: 0 auto 30px auto;
+  width: 240px;
+  margin: 10px auto 30px auto;
 }
+
+
 
 .inputField {
   position: relative;
+  width: 240px;
   background: transparent;
   border: 1px solid black;
   text-indent: 10px;
@@ -53,4 +56,5 @@
   margin-top: 40px;
   min-height: 200px;
   max-height: 300px;
+  width: 240px;
 }

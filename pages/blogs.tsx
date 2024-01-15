@@ -43,14 +43,26 @@ export const getStaticProps = async () => {
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
+const truncateText = (text: string, length: number) => {
+  if (text.length > length) {
+    return text.substring(0, length) + '...';
+  } else {
+    return text;
+  }
+};
+
+
 const Blogs: NextPage<Props> = ({ posts }) => {
+  // Define the maximum number of characters you want to display
+  const maxContentLength = 200; // for example, 100 characters
+  
   return (
     <div className='space-y-5 flex-col flex items-center justify-center'>
       {posts.map((post) => (
         <BlogCard
          key={post.title} 
          title={post.title} 
-         content={post.content}
+         content={truncateText(post.content, maxContentLength)}
          slug={post.slug} />
       ))}
     </div>

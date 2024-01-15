@@ -13,6 +13,7 @@
     fname: string;
     lname: string;
     message: string;
+    emailSub: boolean
   }
 
   export default async function signup(
@@ -25,7 +26,7 @@
       const collection = client!.db(process.env.DB as string).collection(process.env.SIGNUP as string);
 
       if (req.method === 'POST') {
-        const { email, fname, lname, message } = req.body as PostRequestBody;
+        const { email, fname, lname, message, emailSub } = req.body as PostRequestBody;
         // Request validation
         if (!email || !fname || !lname) {
           return res.status(400).json({
@@ -48,7 +49,7 @@
           } else {
 
           // Insert new post into the collection
-          await collection.insertOne({ email, fname, lname, message });
+          await collection.insertOne({ email, fname, lname, message, emailSub });
           
           // Send a thank you email
           const transporter = nodemailer.createTransport({

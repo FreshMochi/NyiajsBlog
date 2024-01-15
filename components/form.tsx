@@ -6,6 +6,7 @@ interface FormData {
   fname: string;
   lname: string;
   message: string;
+  emailSub: boolean
 }
 
 export default function MyForm() {
@@ -14,6 +15,7 @@ export default function MyForm() {
     fname: "",
     lname: "",
     message: "",
+    emailSub: false
   });
   const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
 
@@ -48,7 +50,8 @@ export default function MyForm() {
           email: "",
           fname: "",
           lname: "",
-          message: ""
+          message: "",
+          emailSub: true,
         });
       } else {
         // Handle errors from the API

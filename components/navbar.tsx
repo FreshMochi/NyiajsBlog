@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import style from '../styles/nav.module.css';
+import jukkeIcon from '../public/Jukke-icon.svg'
+import Image from 'next/image';
 
 // Define motion variants for animations
 const container = {
@@ -41,6 +43,15 @@ const Navbar: React.FC = () => {
           {showMobileMenu ? "Close Menu" : "Menu"}
         </button>
       <div className={`${showMobileMenu ? ' ' + style.showDisplayMNav : ' ' + style.hideDisplayMNav}`}>
+          <div style={{margin: '40px auto 0 auto', height: '200px', width: '200px'}}>
+            {/* Icon Image */}
+            <Image
+                style={{ overflow: 'hidden', height: '200px', width: '200px' }}
+                priority
+                src={jukkeIcon}
+                alt="icon"
+            />
+          </div>
         <ul className={`${style.navLinks} ${showMobileMenu ? style.navActive : ''}`}>
           <li className={style.navItem} onClick={closeMenu}>
             <Link href="/">Home</Link>
