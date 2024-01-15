@@ -12,7 +12,8 @@ interface Props {
 const BlogCard: NextPage<Props> = ({ title, content, slug  }) => {
   // Render the component
   return (
-    <div className='relative flex-col w-2/3 justify-center m-2  max-h-max h-30 bg-zinc-900 p-2 py-12 rounded-md'>
+    <div className='relative 
+    flex-col w-3/4 justify-center m-2  max-h-max h-30 p-2 py-12 rounded-md'>
       <h2 className='relative text-3xl font-bold flex items-center justify-center'>{title}</h2>
       <p className='mt-5'>{content}</p>
       <Link href={`/blogs/${slug}`} passHref>

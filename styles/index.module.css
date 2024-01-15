@@ -10,21 +10,19 @@
 }
 
 
-.heroContainer{
+.heroContainer {
     position: relative;
     display: grid;
     justify-items: center;
-    gap: 5px;
     grid-template-columns: repeat(4, 1fr);
     height: 30vh;
     width: 100%;
 }
 
 .heroBG {
-    position: relative;
-    z-index: -20;
-    width: auto;
-    height: 30vh;
+    grid-column: 1 / -1; /* Span across all columns */
+    width: 100%;
+    height: 100%;
 }
 
 .iconSVG {
@@ -34,18 +32,23 @@
     width: 160px;
     align-self: center;
     justify-self: end;
+    z-index: 2; /* Ensure it's above the background image */
 }
 
 .heroContent {
-    justify-self: start;
-    align-self: center;
     position: absolute;
-    grid-column: 3/4;
+    grid-column: 3 / 4;
+    align-self: center;
+    justify-self: start;
+    z-index: 2; /* Ensure it's above the background image */
 }
 
 .heroContent p {
     font-size: 32px;
 }
+
+/* Rest of your CSS */
+
 
 .contentPrint{
     width: 80%;
@@ -53,8 +56,10 @@
     align-content: center;
 }
 
+
 .contentSec01{
-    margin: 0 auto;
+    width: 90%;
+    margin: 100px auto 0 auto;
     border-radius: 10px;
     background-color: aliceblue;
     color: black;

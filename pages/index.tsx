@@ -24,40 +24,28 @@ export default function Home() {
   
   return (
     <div className={style.container}>
-      <div className={style.heroContainer}
-      
-      >
-        <div 
-        className='heroBG'>
-          <Image
-          src={bgImg} 
-          fill
-          alt="Hero Image"/>
+      <div className={style.heroContainer}>
+        <div className={style.heroBG}>
+            <Image
+                src={bgImg}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                alt="Hero Image"
+            />
         </div>
-
-        <div className={style.iconSVG} >
-        <Image
-          style={{overflow: 'hidden', height: 'inherit', width: 'inherit'}}
-          priority
-          src={jukkeIcon} 
-          alt="icon"/>
+        <div className={style.iconSVG}>
+            {/* Icon Image */}
+            <Image
+                style={{ overflow: 'hidden', height: 'inherit', width: 'inherit' }}
+                priority
+                src={jukkeIcon}
+                alt="icon"
+            />
         </div>
-        <div className={style.heroContent} >
-          <p>
-            Nyiaj's Blog
-          </p>
+        <div className={style.heroContent}>
+            {/* Text Content */}
+            <p>Nyiaj's Blog</p>
         </div>
-      </div>
-
-      <div className={style.contentSec00}>
-        <div className={style.contentPrint}>
-          <p>
-          Welcome to Nyiaj's blog. I'm a self-taught Full-Stack Developer, and here, 
-          I'll share my work and the inspiration I draw from talented individuals worldwide. 
-          My goal is to give back to the community that has supported me.
-          </p>
-        </div>
-      </div>
+    </div>
 
       <div className={style.contentSec01}>
         <>
@@ -75,6 +63,7 @@ export default function Home() {
                 <li>React & NEXTJS</li>
                 <li>NodeJS</li>
                 <li>MongoDB</li>
+                <li>PostMan</li>
                 <li>Google Firebase</li>
                 <li>Github</li>
               </ul>
@@ -83,16 +72,31 @@ export default function Home() {
           </div>
         </>
       </div>
-      <div>
-        <h2>
-          Looking
-        </h2>
-        <p>Contact me on</p>
+
+      <div className={style.contentSec00}>
+        <div className={style.contentPrint}>
+          <h2 style={{textAlign: 'center'}}>About Me</h2>
+          <br />
+          <p>
+          Welcome to Nyiaj's blog, a digital canvas where my journey as a self-taught 
+          Full-Stack Developer unfolds. 
+          Balancing a full-time career with the joys of 
+          my three loyal dogs, I carve out time to innovate and create. 
+          My vision? To weave compelling narratives into web experiences, 
+          bringing them to life with 3D models, immersive music, and, eventually, 
+          virtual reality through the power of C++. 
+          For now, my toolkit is JavaScript, but the quest for knowledge is ceaseless.
+          </p>
+          <br />
+          <p>
+          This website is a living storybook of my adventures in coding—from 
+          the charm of JavaScript to the dream of one day dancing with C++ in a 
+          virtual reality of my own making. It's a space where articles leap from 
+          MongoDB into your world, and where my mission is to connect, collaborate, 
+          and grow alongside the community and innovative enterprises.
+          </p>
+        </div>
       </div>
-      <div className={style.signForm}>
-        <MyForm/>
-      </div>
-      
     </div>
   )
 }

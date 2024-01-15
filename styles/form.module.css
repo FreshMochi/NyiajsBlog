@@ -1,7 +1,7 @@
 .form {
   height: 80vh;
   width: 90%;
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
   margin: 0 auto;
   flex-flow: column;
   display: flex;
@@ -19,13 +19,15 @@
   position: relative;
   background: transparent;
   border: 1px solid black;
+  text-indent: 10px;
+  border-radius: 20px;
   padding: 5px;
 }
 
 .labelField {
   position: absolute;
   width: inherit;
-  left: 5px; /* Adjust the left position as needed */
+  left: 15px; /* Adjust the left position as needed */
   top: 5px; /* Adjust the top position to control the initial label position */
   transition: top 0.3s ease, font-size 0.3s ease; /* Add font-size transition for smooth scaling */
   pointer-events: none;
@@ -43,7 +45,12 @@
   color: red;
 }
 
+.checkbox {
+  padding-bottom: 40px;
+}
+
 .textarea {
+  margin-top: 40px;
   min-height: 200px;
   max-height: 300px;
 }

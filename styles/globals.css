@@ -18,7 +18,10 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(0deg, rgba(23, 23, 23, 1) 1%, rgba(32, 25, 11, 1) 9%, rgb(26, 17, 1) 90%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(0deg, rgba(23, 23, 23, 1) 1%, 
+  rgba(32, 25, 11, 1) 9%, 
+  rgb(26, 17, 1) 90%, 
+  rgb(32, 25, 11) 100%);
     overflow-x: hidden;
 }
 

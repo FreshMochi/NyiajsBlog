@@ -69,8 +69,13 @@ export default function MyForm() {
       <form
         className={styles.form}
         onSubmit={handleSubmit}
-        style={{ backgroundColor: "lightblue", color: "black" }}
-      >
+        style={{ backgroundColor: "aliceblue", color: "black" }}
+        >
+          <div>
+        <h2 style={{textAlign: 'center'}}>Connect</h2>
+        <p>Connect with me here or subscribe to my blog</p>
+          </div>
+          <br/>
         <div className={styles.inputWrapper}>
           <input
             id="email"
@@ -107,14 +112,18 @@ export default function MyForm() {
           />
           <label className={`${styles.labelField} ${formData.lname ? styles.holdLabel : ""}` }>Last Name:</label>
         </div>
+        <div>
+          <label className={`${styles.checkbox}`}>Subscribe to blogs </label>
+          <input type="checkbox" name="emailSub" id=""/>
+        </div>
         <div className={styles.inputWrapper}>
+          <label className={`${styles.labelField}` }>{`Message (Optional)`}</label>
           <textarea
             className={styles.inputField + " " + styles.textarea}
             onChange={handleChange}
             name="message"
             value={formData.message}
           />
-          <label className={`${styles.labelField} ${formData.message ? styles.holdLabel : ""}` }>{`Message (Optional)`}</label>
         </div>
         <button type="submit">Submit</button>
       </form>

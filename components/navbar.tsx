@@ -46,12 +46,6 @@ const Navbar: React.FC = () => {
             <Link href="/">Home</Link>
           </li>
           <li className={style.navItem} onClick={closeMenu}>
-            <Link href="/about">About</Link>
-          </li>
-          <li className={style.navItem} onClick={closeMenu}>
-            <Link href="/projects">Projects</Link>
-          </li>
-          <li className={style.navItem} onClick={closeMenu}>
             <Link href="/blogs">Blog</Link>
           </li>
         </ul>
