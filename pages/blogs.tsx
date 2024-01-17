@@ -2,6 +2,7 @@
 
 import { InferGetStaticPropsType, NextPage } from 'next';
 import BlogCard from '@/components/blogcards';
+import Form from '../components/form'
 
 interface PostsApiResponse {
   posts: {
@@ -65,6 +66,7 @@ const Blogs: NextPage<Props> = ({ posts }) => {
          content={truncateText(post.content, maxContentLength)}
          slug={post.slug} />
       ))}
+      <Form />
     </div>
   );
 };
