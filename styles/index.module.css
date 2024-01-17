@@ -11,37 +11,37 @@
 
 
 .heroContainer {
-    position: relative;
     display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(4, 1fr);
-    height: 30vh;
+    grid-template-columns: repeat(4, 1frs);
     width: 100%;
+    position: relative; /* Establishes a stacking context */
+}
+
+.iconSVG, .heroContent {
+    grid-column: 1; /* Places all elements in the first (and only) column */
+    grid-row: 1; /* Places all elements in the first (and only) row */
+    place-self: center center; /* Centers elements both horizontally and vertically */
 }
 
 .heroBG {
     grid-column: 1 / -1; /* Span across all columns */
     width: 100%;
-    height: 100%;
 }
 
 .iconSVG {
     position: absolute;
-    grid-column: 2 / 3;
-    height: 160px;
-    width: 160px;
-    align-self: center;
-    justify-self: end;
-    z-index: 2; /* Ensure it's above the background image */
+    transform: translateX(-5em);
+    z-index: 4; /* Ensures it is layered above the hero background image */
+    width: 120px; /* Width of the icon */
+    height: 120px; /* Height of the icon */
 }
 
 .heroContent {
     position: absolute;
-    grid-column: 3 / 4;
-    align-self: center;
-    justify-self: start;
-    z-index: 2; /* Ensure it's above the background image */
+    transform: translateX(5em);
+    z-index: 4; 
 }
+
 
 .heroContent p {
     font-size: 32px;
@@ -59,7 +59,7 @@
 
 .contentSec01{
     width: 90%;
-    margin: 100px auto 0 auto;
+    margin: 40px auto 0 auto;
     border-radius: 10px;
     background-color: aliceblue;
     color: black;
@@ -77,7 +77,35 @@
 }
 
 @media (min-width: 767px ) {
-    .container {height: 200px;}
+    .contentBody {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .iconSVG{
+        height: 240px;
+        width: 240px;
+        transform: translateX(-10em);
+    }
+
+    .contentSec00, .contentSec01{
+        width: 90%;
+        margin: 60px auto 0 auto;
+    }
+
+    .contentPrint {
+        display: flex;
+        justify-content: space-between;
+        width: 96%;
+    }
+
+    .contentPrint p {
+        margin: 0 30px;
+    }
+
 }
 
 @media (min-width: 1200px ) {

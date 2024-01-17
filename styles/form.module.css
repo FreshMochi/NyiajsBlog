@@ -1,8 +1,9 @@
 .form {
-  height: 80vh;
+  height: 100vh;
   width: 90%;
   border-radius: 20px 20px 0 0;
   margin: 0 auto;
+  padding: 60px 0 0 0;
   flex-flow: column;
   display: flex;
   justify-content: center;
@@ -57,4 +58,15 @@
   min-height: 200px;
   max-height: 300px;
   width: 240px;
+}
+
+.btn {
+  font-size: 26px;
+  margin: 0 0 120px 0;
+}
+
+@media (min-width: 767px ) {
+  .form {
+    height: 80vh;
+  }
 }

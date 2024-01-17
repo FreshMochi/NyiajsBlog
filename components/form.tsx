@@ -128,7 +128,7 @@ export default function MyForm() {
             value={formData.message}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className={styles.btn}>Submit</button>
       </form>
     </div>
   );

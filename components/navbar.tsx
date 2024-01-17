@@ -1,32 +1,12 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from '../styles/nav.module.css';
 import jukkeIcon from '../public/Jukke-icon.svg'
 import Image from 'next/image';
 
-// Define motion variants for animations
-const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1
-  }
-};
-
 const Navbar: React.FC = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [isShrunk, setIsShrunk] = useState(false);
 
   const toggleMobileMenu = () => {
     setShowMobileMenu(!showMobileMenu);
@@ -36,33 +16,53 @@ const Navbar: React.FC = () => {
     setShowMobileMenu(!showMobileMenu);
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsShrunk(true);
+      } else {
+        setIsShrunk(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className={`${style.navbar}`}>
+    <nav className={`${style.navbar} ${isShrunk ? style.shrunkNavbar : ''}`}>
 
         <button onClick={toggleMobileMenu} className={style.navbarToggle}>
           {showMobileMenu ? "Close Menu" : "Menu"}
         </button>
-      <div className={`${showMobileMenu ? ' ' + style.showDisplayMNav : ' ' + style.hideDisplayMNav}`}>
-          <div style={{margin: '40px auto 0 auto', height: '200px', width: '200px'}}>
-            {/* Icon Image */}
-            <Image
-                style={{ overflow: 'hidden', height: '200px', width: '200px' }}
-                priority
-                src={jukkeIcon}
-                alt="icon"
-            />
-          </div>
-        <ul className={`${style.navLinks} ${showMobileMenu ? style.navActive : ''}`}>
-          <li className={style.navItem} onClick={closeMenu}>
-            <Link href="/">Home</Link>
-          </li>
-          <li className={style.navItem} onClick={closeMenu}>
-            <Link href="/blogs">Blog</Link>
-          </li>
-        </ul>
-      </div>
+        <MobileNav isShrunk={isShrunk} showMobileMenu={showMobileMenu} closeMenu={closeMenu}  />
+      
     </nav>
   );
 };
 
 export default Navbar;
+
+
+const MobileNav: React.FC<{ isShrunk: boolean; showMobileMenu: boolean; closeMenu: () => void; }> = ({ isShrunk, showMobileMenu, closeMenu }) => (
+  <div className={`${isShrunk ? style.shrunkNavbar : ''} ${showMobileMenu ? ' ' + style.showDisplayMNav : ' ' + style.hideDisplayMNav} `}>
+    <ul className={`${style.navLinks} ${showMobileMenu ? style.navActive : ''} `}>
+      <div className={style.mobileNavIcon}>
+        <Image
+            style={{ overflow: 'hidden', height: 'inherit', width: 'inherit' }}
+            src={jukkeIcon}
+            alt="icon"
+        />
+      </div>
+      <li className={style.navItem} onClick={() => closeMenu()}>
+        <Link href="/">Home</Link>
+      </li>
+      <li className={style.navItem} onClick={() => closeMenu()}>
+        <Link href="/blogs">Blog</Link>
+      </li>
+    </ul>
+  </div>
+);

@@ -1,12 +1,20 @@
-.navbar {
-    position: fixed;
+.deskNavIcon {
+  display: none;
+}
+
+.mobileNavIcon {
     width: 100%;
+    height: 100px;
     display: flex;
     justify-content: flex-end;
     background-color: #33333300;
     padding: 0;
     margin: 0;
     z-index: 20;
+  }
+  .shrunkNavbar {
+    /* Styles to apply when the navbar is shrunk */
+    height: 50px; /* Or any other style changes */
   }
 
   .hideDisplayMNav {
@@ -18,6 +26,13 @@
     left: 100%;
     height: 100vh;
     width: 100%;
+    z-index: 10;
+  }
+
+  .navIcon{
+    height: 120px;
+    margin: 0 auto;
+    place-self: center center;
   }
   
   .showDisplayMNav{
@@ -29,10 +44,11 @@
     left: 0;
     height: 100vh;
     width: 100%;
+    z-index: 10;
   }
   
   .navbarToggle {
-    display: none;
+    display: block;
     position: fixed;
     z-index: 20;
     right: 2rem;
@@ -43,12 +59,12 @@
   .navLinks {
     position: absolute;
     display: flex;
-    width: auto;
     height: 40vh;
     list-style: none;
     align-items: center;
     justify-content: space-evenly;
-    /* Add additional styles as needed */
+    flex-direction: column;
+    width: 100%;
   }
   
   .navItem {
@@ -58,21 +74,17 @@
     /* Other styles for your nav items */
   }
   
-  /* Responsive styles */
-  @media (max-width: 767px) {
-    .navbarToggle {
-      display: block;
-    }
-  
-    .navLinks {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      /* Styles for mobile menu */
-    }
-  
-    .navActive {
-      display: flex;
-    }
+  .navActive {
+    display: flex;
   }
+
+  @media (min-width: 767px) {
+
+    .navbarToggle {
+      display: none;
+    }
+    
+  }
+
+
   

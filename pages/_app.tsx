@@ -10,7 +10,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <Navbar />
     <RouterWrapper>
         <Component {...pageProps} />
-        <Form />
     </RouterWrapper>
     </div>
 )}
