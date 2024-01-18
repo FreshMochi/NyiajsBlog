@@ -58,14 +58,15 @@ const Blogs: NextPage<Props> = ({ posts }) => {
   const maxContentLength = 200; // for example, 100 characters
   
   return (
-    <div className='space-y-5 flex-col flex items-center justify-center'>
+    <div className='space-y-5 w-screen flex-col flex items-center justify-center'>
       {posts.map((post) => (
         <BlogCard
          key={post.title} 
          title={post.title} 
          content={truncateText(post.content, maxContentLength)}
          slug={post.slug} />
-      ))}
+      ))
+      }
       <Form />
     </div>
   );

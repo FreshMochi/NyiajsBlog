@@ -1,44 +1,55 @@
+import React, { useState, useEffect, FC } from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
 import style from '../styles/nav.module.css';
 
-const Navbar: React.FC = () => {
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
+const Navbar: FC = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+  const [isShrunk, setIsShrunk] = useState<boolean>(false);
 
-  const toggleMobileMenu = () => {
+  const toggleMobileMenu = (): void => {
     setShowMobileMenu(!showMobileMenu);
   }
 
-  const closeMenu = () => {
-    setShowMobileMenu(!showMobileMenu);
-  }
+  useEffect(() => {
+    const handleScroll = (): void => {
+      if (window.innerWidth > 767) {
+        setIsShrunk(window.scrollY > 50);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return (): void => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className={`${style.navbar}`}>
-
-        <button onClick={toggleMobileMenu} className={style.navbarToggle}>
-          {showMobileMenu ? "Close Menu" : "Menu"}
-        </button>
-        <MobileNav showMobileMenu={showMobileMenu } closeMenu={closeMenu}/>
+    <nav className={`${style.navbar} ${isShrunk ? style.shrunk : ''}`}>
+      <button onClick={toggleMobileMenu} className={style.navbarToggle}>
+        {showMobileMenu ? "Close Menu" : "Menu"}
+      </button>
+      <MobileNav showMobileMenu={showMobileMenu} closeMenu={toggleMobileMenu} />
+      <DesktopNav />
     </nav>
   );
 };
 
 export default Navbar;
 
-type MobileNavProps = {
+interface MobileNavProps {
   showMobileMenu: boolean;
-  closeMenu: () => void; // closeMenu should be a function if you want to call it on click
-};
+  closeMenu: () => void;
+}
 
-const MobileNav: React.FC<MobileNavProps> = ({ showMobileMenu, closeMenu }) => {
+const MobileNav: FC<MobileNavProps> = ({ showMobileMenu, closeMenu }) => {
   return (
     <div className={`${showMobileMenu ? style.showDisplayMNav : style.hideDisplayMNav}`}>
       <ul className={`${style.navLinks} ${showMobileMenu ? style.navActive : ''}`}>
-        <li className={style.navItem} onClick={() => closeMenu()}>
+        <li className={style.navItem} onClick={closeMenu}>
           <Link href="/">Home</Link>
         </li>
-        <li className={style.navItem} onClick={() => closeMenu()}>
+        <li className={style.navItem} onClick={closeMenu}>
           <Link href="/blogs">Blog</Link>
         </li>
       </ul>
@@ -46,10 +57,15 @@ const MobileNav: React.FC<MobileNavProps> = ({ showMobileMenu, closeMenu }) => {
   );
 };
 
-const DesktopNav: React.FC = () => {
-  return(
-    <div>
-
-    </div>
+const DesktopNav: FC = () => {
+  return (
+    <ul className={style.desktopNavContainer}>
+      <li className={style.deskNavItem}>
+        <Link href="/">Home</Link>
+      </li>
+      <li className={style.deskNavItem}>
+        <Link href="/blogs">Blog</Link>
+      </li>
+    </ul>
   )
 }

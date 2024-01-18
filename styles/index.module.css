@@ -31,7 +31,7 @@
 .iconSVG {
     position: absolute;
     transform: translateX(-5em);
-    z-index: 4; /* Ensures it is layered above the hero background image */
+    z-index: 1; /* Ensures it is layered above the hero background image */
     width: 120px; /* Width of the icon */
     height: 120px; /* Height of the icon */
 }
@@ -39,7 +39,7 @@
 .heroContent {
     position: absolute;
     transform: translateX(5em);
-    z-index: 4; 
+    z-index: 1; 
 }
 
 
