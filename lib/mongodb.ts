@@ -32,7 +32,7 @@ export async function connectToMongoDB(): Promise<Db | undefined> {
 
       // Connect to the MongoDB server
       await client.connect();
-      console.log('Connected to MongoDB');
+      //console.log('Connected to MongoDB');
     }
 
     // Return the database instance associated with the connected client

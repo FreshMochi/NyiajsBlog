@@ -11,11 +11,6 @@ interface Post {
   slug: string;
 }
 
-interface ProcessEnv {
-  DB: string;
-  COLLECTION: string;
-}
-
 // Define the structure of an object containing an array of posts
 interface Articles {
   posts: Post[];
@@ -36,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   try {
     // Connect to MongoDB
     await connectToMongoDB();
-
+    
     // Access the MongoDB collection
     const collection = client!.db(process.env.DB).collection(process.env.COLLECTION as string);
 

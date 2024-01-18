@@ -76,7 +76,7 @@ export default function MyForm() {
         >
           <div>
         <h2 style={{textAlign: 'center'}}>Connect</h2>
-        <p>Connect with me here or subscribe to my blog</p>
+        <p>Connect with me below or subscribe to my blog</p>
           </div>
           <br/>
         <div className={styles.inputWrapper}>
@@ -119,7 +119,7 @@ export default function MyForm() {
           <label className={`${styles.checkbox}`}>Subscribe to blogs </label>
           <input type="checkbox" name="emailSub" id=""/>
         </div>
-        <div className={styles.inputWrapper}>
+        <div className={styles.textWrapper} /* No style in CSS module */>
           <label className={`${styles.labelField}` }>{`Message (Optional)`}</label>
           <textarea
             className={styles.inputField + " " + styles.textarea}

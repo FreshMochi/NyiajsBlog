@@ -63,9 +63,17 @@
   margin: 0 0 120px 0;
 }
 
+.textWrapper {
+  position: relative;
+}
+
 @media (min-width: 767px ) {
   .form {
     height: 80vh;
     width: 90%;
+  }
+
+  .textarea {
+    width: 407px;
   }
 }
