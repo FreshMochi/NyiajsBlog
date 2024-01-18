@@ -108,6 +108,17 @@
 
 }
 
-@media (min-width: 1200px ) {
-    .container {height: 600px;}
+@media (min-width: 1000px ) {
+    .contentBody{
+        height: 90vh;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-flow: row;
+    }
+
+    .contentPrint{
+        flex-flow: column;
+        margin: 0 auto
+    }
 }
