@@ -50,7 +50,7 @@
 }
 
 .navItem {
-  margin-right: 20px;
+  margin-right: 40px;
   /* Other styles for your nav items */
 }
 
@@ -70,13 +70,18 @@
 }
 /* Responsive styles */
 @media (min-width: 767px) {
-
+  .container{
+    width: inherit;
+  }
   
   .navbar {
+    position: fixed;
+    top: 0;
     flex-flow: column;
     background-color: black;
     place-content: center center;
     height: 55px;
+    max-width: 1400px;
     z-index: 2;
     transition: 1s ease-in-out;
   }

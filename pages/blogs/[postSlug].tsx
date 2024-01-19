@@ -19,7 +19,7 @@ interface Articles {
 // Define the main page component for /blogs/[postSlug]
 const BlogPage: NextPage<{ article: Post }> = ({ article }) => {
   return (
-    <div className='bg-blue-800 h-auto'>
+    <div className='bg-blue-800 h-screen pt-20'>
       <h1>Title: {article.title}</h1>
       <p>{article.content}</p>
     </div>

@@ -3,6 +3,7 @@
 import { InferGetStaticPropsType, NextPage } from 'next';
 import BlogCard from '@/components/blogcards';
 import Form from '../components/form'
+import '../styles/blog.module.css'
 
 interface PostsApiResponse {
   posts: {
@@ -63,9 +64,9 @@ const Blogs: NextPage<Props> = ({ posts }) => {
   const maxContentLength = 200; // for example, 100 characters
     
   return (
-    <div>
+    <div className='blogContainer'>
 
-    <div className='space-y-5 w-screen flex-col flex items-center justify-center'>
+    <div className='space-y-5 w-fit flex-col flex items-center justify-center'>
       {posts.map((post) => (
         <BlogCard
         key={post.title} 

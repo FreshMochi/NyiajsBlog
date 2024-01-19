@@ -28,8 +28,7 @@
 
 .labelField {
   position: absolute;
-  width: inherit;
-  left: 15px; /* Adjust the left position as needed */
+  left: 10px; /* Adjust the left position as needed */
   top: 5px; /* Adjust the top position to control the initial label position */
   transition: top 0.3s ease, font-size 0.3s ease; /* Add font-size transition for smooth scaling */
   pointer-events: none;
@@ -76,4 +75,5 @@
   .textarea {
     width: 407px;
   }
+
 }
