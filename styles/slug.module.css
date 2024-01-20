@@ -1,0 +1,29 @@
+.blogContainer {
+    width: 90%;
+    margin: 0 auto 0 auto;
+    padding: 20px;
+    color: #fff;
+    height: 100vh;
+  }
+
+  .blogTitle {
+    margin-bottom: 20px;
+    color: #0070f3;
+  }
+
+  .blogContent p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  .paragraph {
+    margin-bottom: 1rem; /* Adds space between paragraphs */
+  }
+
+  @media (min-width: 767px) {
+    .blogContainer {
+        width: 80%;
+        margin: 60px auto 0 auto;
+    }
+  }

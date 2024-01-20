@@ -1,4 +1,4 @@
-// pages/posts.tsx
+// pages/blogs.tsx
 
 import { InferGetStaticPropsType, NextPage } from 'next';
 import BlogCard from '@/components/blogcards';
@@ -10,6 +10,7 @@ interface PostsApiResponse {
     title: string;
     slug: string;
     content: string;
+    date: number;
   }[];
 }
 
@@ -70,6 +71,7 @@ const Blogs: NextPage<Props> = ({ posts }) => {
       {posts.map((post) => (
         <BlogCard
         key={post.title} 
+        date={post.date}
         title={post.title} 
         content={truncateText(post.content, maxContentLength)}
         slug={post.slug} />

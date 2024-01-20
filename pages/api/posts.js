@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         }
 
         // Insert new post into the collection
-        await collection.insertOne({ title, content, slug });
+        await collection.insertOne({ title, content, date, slug });
 
         // Respond with success message
         res.status(201).json({ success: true, message: 'Post created successfully' });

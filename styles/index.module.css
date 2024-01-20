@@ -54,6 +54,7 @@
     width: 80%;
     margin: 40px auto;
     align-content: center;
+    text-align: left;
 }
 
 
@@ -98,7 +99,6 @@
 
     .contentPrint {
         display: flex;
-        justify-content: space-between;
         width: 96%;
     }
 

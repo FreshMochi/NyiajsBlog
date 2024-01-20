@@ -3,11 +3,13 @@
 // Import necessary Next.js and MongoDB-related modules
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { connectToMongoDB, client } from '../../lib/mongodb';
+import style from '../../styles/slug.module.css'
 
 // Define the structure of a post
 interface Post {
   title: string;
   content: string;
+  date: number;
   slug: string;
 }
 
@@ -16,15 +18,31 @@ interface Articles {
   posts: Post[];
 }
 
+
 // Define the main page component for /blogs/[postSlug]
 const BlogPage: NextPage<{ article: Post }> = ({ article }) => {
+  // Function to convert newline characters into paragraph tags
+  const dateObject = new Date(article.date);
+
+  // Format the date as needed for display...
+  const displayDate = dateObject.toLocaleDateString('en-US', { /* options */ });
+
+
   return (
-    <div className='bg-blue-800 h-screen pt-20'>
-      <h1>Title: {article.title}</h1>
-      <p>{article.content}</p>
+    <div className={style.blogContainer}>
+      <div>
+      <h1 className={style.blogTitle}>{article.title}</h1>
+      </div>
+      <div>
+        {displayDate}
+      </div>
+      <div className={style.blogContent}>
+        <p className={style.paragraph}>{article.content}</p>
+      </div>
     </div>
   );
 };
+
 
 // Implement the function to generate static paths during build time
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -63,7 +81,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const collection = client!.db(process.env.DB).collection(process.env.COLLECTION as string);
 
     // Fetch the specific post based on the provided slug
-    const post = await collection.findOne({ slug: params?.postSlug});
+    const post = await collection.findOne({ slug: params?.postSlug }, 
+      { projection: { title: 1, content: 1, date: 1, slug: 1, } });
 
     // If the post is not found, log an error and throw an exception
     if (!post) {
@@ -71,9 +90,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       throw new Error('Post not found');
     }
 
-    // Convert the MongoDB _id to a string before returning the data as props
-    const { _id, ...restOfPost } = post;
-    const article = { ...restOfPost, _id: _id.toString() };
+    // Convert the MongoDB _id and the Date to a string before returning the data as props
+    const { _id, date, ...restOfPost } = post;
+    const article = { 
+      ...restOfPost, 
+      _id: _id.toString(),
+      date: date.toISOString() // Convert the Date to an ISO string
+    };
 
     // Return the fetched post data as props along with revalidation settings
     return {
