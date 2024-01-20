@@ -4,6 +4,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { connectToMongoDB, client } from '../../lib/mongodb';
 import style from '../../styles/slug.module.css'
+import FormattedText from '../../components/FormattedText';
 
 // Define the structure of a post
 interface Post {
@@ -37,7 +38,7 @@ const BlogPage: NextPage<{ article: Post }> = ({ article }) => {
         {displayDate}
       </div>
       <div className={style.blogContent}>
-        <p className={style.paragraph}>{article.content}</p>
+      <FormattedText content={article.content} />
       </div>
     </div>
   );
