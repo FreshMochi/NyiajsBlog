@@ -47,8 +47,6 @@ export const getStaticProps = async () => {
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-
-
 const truncateText = (text: string, length: number) => {
   if (text.length > length) {
     return text.substring(0, length) + '...';
@@ -57,12 +55,9 @@ const truncateText = (text: string, length: number) => {
   }
 };
 
-
-
-
 const Blogs: NextPage<Props> = ({ posts }) => {
   // Define the maximum number of characters you want to display
-  const maxContentLength = 220; // for example, 100 characters
+  const maxContentLength = 200; // for example, 100 characters
     
   return (
     <div className={style.blogContainer}>

@@ -1,6 +1,5 @@
 .blogContainer {
     width: 100%;
-    padding: 80px 0 0 0;
     background: linear-gradient(0deg, rgba(23, 23, 23, 1) 1%, 
   rgba(32, 25, 11, 1) 9%, 
   rgb(26, 17, 1) 90%, 
@@ -10,9 +9,16 @@
 }
 
 .postContainer {
-    min-height: 50vh;
+    min-height: 40vh;
+    max-height: max-content;
+    row-gap: 30px;
     width: 90%;
     margin: 0 auto;
+    padding: 80px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    justify-content: space-around;
 }
 
 .blogCardContainer {
@@ -33,5 +39,28 @@
         width: 49%;
         min-height: 22vh;
         
+    }
+    .postContainer {
+        min-height: 50vh;
+        max-width: max-content;
+        width: 90%;
+        flex-flow: wrap;
+    
+    }
+
+    .blogCardContainer {
+        position: relative;
+        width: 45%;
+        height: 260px;
+        row-gap: 30px;
+        column-gap: 30px;
+    }
+}
+
+@media (min-width: 1000px ) {
+    .blogCardContainer button {
+        bottom: 40px;
+        right: 35%;
+        width: 160px;
     }
 }
