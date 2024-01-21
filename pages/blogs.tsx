@@ -62,7 +62,7 @@ const truncateText = (text: string, length: number) => {
 
 const Blogs: NextPage<Props> = ({ posts }) => {
   // Define the maximum number of characters you want to display
-  const maxContentLength = 200; // for example, 100 characters
+  const maxContentLength = 220; // for example, 100 characters
     
   return (
     <div className={style.blogContainer}>

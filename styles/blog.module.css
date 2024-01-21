@@ -1,6 +1,37 @@
 .blogContainer {
-    background-color: blue;
-    margin: 0 auto;
+    width: 100%;
+    padding: 80px 0 0 0;
+    background: linear-gradient(0deg, rgba(23, 23, 23, 1) 1%, 
+  rgba(32, 25, 11, 1) 9%, 
+  rgb(26, 17, 1) 90%, 
+  rgb(32, 25, 11) 100%);
     position: relative;
-    text-align: center;
+    text-align: left;
+}
+
+.postContainer {
+    min-height: 50vh;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.blogCardContainer {
+    position: relative;
+    width: 94%;
+    min-height: 30vh;
+    padding: 10px 10px 10px 10px;
+    margin: 0 auto;
+    outline: 3px solid white;
+    background-color: black;
+    border-radius: 20px;
+    
+}
+
+@media (min-width: 767px ) {
+    .blogCardContainer {
+        margin: 0;
+        width: 49%;
+        min-height: 22vh;
+        
+    }
 }
