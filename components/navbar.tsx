@@ -1,6 +1,8 @@
-import React, { useState, useEffect, FC } from 'react';
+import React, { useState, useEffect, FC, } from 'react';
 import Link from 'next/link';
 import style from '../styles/nav.module.css';
+import Image from 'next/image';
+import jukkeIcon from '../public/Jukke-icon.svg'
 
 const Navbar: FC = () => {
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
@@ -45,6 +47,15 @@ interface MobileNavProps {
 const MobileNav: FC<MobileNavProps> = ({ showMobileMenu, closeMenu }) => {
   return (
     <div className={`${showMobileMenu ? style.showDisplayMNav : style.hideDisplayMNav}`}>
+      <div style={{margin: '40px auto 0 auto', height: '200px', width: '200px'}}>
+            {/* Icon Image */}
+            <Image
+                style={{ overflow: 'hidden', height: '200px', width: '200px' }}
+                priority
+                src={jukkeIcon}
+                alt="icon"
+            />
+          </div>
       <ul className={`${style.navLinks} ${showMobileMenu ? style.navActive : ''}`}>
         <li className={style.navItem} onClick={closeMenu}>
           <Link href="/">Home</Link>

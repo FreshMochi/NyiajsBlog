@@ -52,9 +52,13 @@
 
 .contentPrint{
     width: 80%;
-    margin: 40px auto;
+    margin: auto auto 40px auto;
     align-content: center;
     text-align: left;
+}
+
+.contentSec00{
+    margin: 60px 0;
 }
 
 
