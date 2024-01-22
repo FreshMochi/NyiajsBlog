@@ -16,30 +16,31 @@ interface Post {
 
 
 // Define the main page component for /blogs/[postSlug]
-const BlogPage: NextPage<{ article: Post }> = ({ article }) => {
+const BlogPage: NextPage<{ article: Post | undefined }> = ({ article }) => {
+  // First, check if the article is defined to avoid trying to read properties of undefined
+  if (!article) {
+    // You can handle the loading state or return a message or a 404 component
+    return <div>Loading...</div>;
+  }
 
-  // Function to convert newline characters into paragraph tags
-  const dateObject = new Date(article.date);
-
-  // Format the date as needed for display...
-  
-  const displayDate = dateObject.toLocaleDateString('en-US', { 
+  // Now that we know article is defined, we can safely access its properties
+  const displayDate = new Date(article.date).toLocaleDateString('en-US', {
     weekday: 'long',
     month: 'long',
     day: 'numeric',
-    year: 'numeric', });
-
+    year: 'numeric',
+  });
 
   return (
     <div className={style.blogContainer}>
       <div>
-      <h1 className={style.blogTitle}>{article.title}</h1>
+        <h1 className={style.blogTitle}>{article.title}</h1>
       </div>
       <div>
         {displayDate}
       </div>
       <div className={style.blogContent}>
-      <FormattedText content={article.content} />
+        <FormattedText content={article.content} />
       </div>
     </div>
   );
