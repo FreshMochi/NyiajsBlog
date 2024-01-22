@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
     /* await new Promise((resolve) => setTimeout(resolve, 500000)); */
 
     // Fetch data from MongoDB
-    const response = await fetch('http://localhost:3000/api/posts');
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
     const { posts }: PostsApiResponse = await response.json();
 
     // Reverse the posts array
