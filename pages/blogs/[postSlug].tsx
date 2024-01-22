@@ -18,7 +18,6 @@ interface Post {
 // Define the main page component for /blogs/[postSlug]
 const BlogPage: NextPage<{ article: Post }> = ({ article }) => {
 
-  console.log('Article prop:', article);
   // Function to convert newline characters into paragraph tags
   const dateObject = new Date(article.date);
 
