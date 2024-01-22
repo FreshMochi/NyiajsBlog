@@ -71,8 +71,10 @@
           transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
               console.error('Email error:', error);
+              return res.status(500).json({ success: false, error: 'Email could not be sent', message: error.message });
             } else {
               console.log('Email sent:', info.response);
+              res.status(201).json({ success: true, message: 'Thank you for signing up. A confirmation email has been sent.' });
             }
           });
           res.status(201).json({ success: true, message: 'Post created successfully' });
