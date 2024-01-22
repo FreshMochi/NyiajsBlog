@@ -14,11 +14,6 @@ interface Post {
   slug: string;
 }
 
-// Define the structure of an object containing an array of posts
-interface Articles {
-  posts: Post[];
-}
-
 
 // Define the main page component for /blogs/[postSlug]
 const BlogPage: NextPage<{ article: Post }> = ({ article }) => {
@@ -63,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // Return the generated paths and specify fallback behavior
     return {
       paths,
-      fallback: true,
+      fallback: false,
     };
   } catch (error) {
     // Handle errors during the path generation process
