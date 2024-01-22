@@ -43,7 +43,7 @@ export default function Home() {
         </span>
         <span className={style.heroContent}>
           {/* Text Content */}
-          <p>Nyiaj's Blog</p>
+          <p>Nyiaj&apos;s Blog</p>
         </span>
       </div>
 
@@ -84,7 +84,7 @@ export default function Home() {
           <div className={style.contentPrint}>
             <br />
             <p>
-              Welcome to Nyiaj's blog, a digital canvas where my journey as a
+              Welcome to Nyiaj&apos;s blog, a digital canvas where my journey as a
               self-taught Full-Stack Developer unfolds. Balancing a full-time
               career with the joys of my three loyal dogs, I carve out time to
               innovate and create. My vision? To weave compelling narratives
@@ -97,7 +97,7 @@ export default function Home() {
             <p>
               This website is a living storybook of my adventures in coding—from
               the charm of JavaScript to the dream of one day dancing with C++
-              in a virtual reality of my own making. It's a space where articles
+              in a virtual reality of my own making. It&apos;s a space where articles
               leap from MongoDB into your world, and where my mission is to
               connect, collaborate, and grow alongside the community and
               innovative enterprises.
