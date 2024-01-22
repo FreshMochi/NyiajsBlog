@@ -21,6 +21,10 @@ export const getStaticProps = async () => {
 
     // Fetch data from MongoDB
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.status}`);
+    }
+    
     const { posts }: PostsApiResponse = await response.json();
 
     // Reverse the posts array
@@ -58,6 +62,7 @@ const truncateText = (text: string, length: number) => {
 const Blogs: NextPage<Props> = ({ posts }) => {
   // Define the maximum number of characters you want to display
   const maxContentLength = 200; // for example, 100 characters
+  
     
   return (
     <div className={style.blogContainer}>

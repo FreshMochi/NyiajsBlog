@@ -58,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // Return the generated paths and specify fallback behavior
     return {
       paths,
-      fallback: true,
+      fallback: false,
     };
   } catch (error) {
     // Handle errors during the path generation process
