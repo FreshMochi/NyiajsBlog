@@ -65,7 +65,7 @@
             from: 'nxiong984@gmail.com', // Sender's email address
             to: email, // Recipient's email address
             subject: `Signin up for Nyiaj's Blog`,
-            text: `Thank you ${fname} for signing up to Nyiaj's Blog`,
+            text: `Thank you ${fname} for signing up to Nyiaj's Blog ${message}`,
           };
 
           transporter.sendMail(mailOptions, (error, info) => {
