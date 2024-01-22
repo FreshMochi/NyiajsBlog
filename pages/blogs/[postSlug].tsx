@@ -80,6 +80,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const post = await collection.findOne({ slug: params?.postSlug }, 
       { projection: { title: 1, content: 1, date: 1, slug: 1, } });
 
+      // Log the fetched post
+    console.log('Fetched post:', post);
+
     // If the post is not found, log an error and throw an exception
     if (!post) {
       console.error('Post not found for slug:', params?.postSlug);
