@@ -17,11 +17,18 @@ interface Post {
 
 // Define the main page component for /blogs/[postSlug]
 const BlogPage: NextPage<{ article: Post }> = ({ article }) => {
+
+  console.log('Article prop:', article);
   // Function to convert newline characters into paragraph tags
   const dateObject = new Date(article.date);
 
   // Format the date as needed for display...
-  const displayDate = dateObject.toLocaleDateString('en-US', { /* options */ });
+  
+  const displayDate = dateObject.toLocaleDateString('en-US', { 
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric', });
 
 
   return (
@@ -58,7 +65,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // Return the generated paths and specify fallback behavior
     return {
       paths,
-      fallback: false,
+      fallback: true,
     };
   } catch (error) {
     // Handle errors during the path generation process
@@ -80,9 +87,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const post = await collection.findOne({ slug: params?.postSlug }, 
       { projection: { title: 1, content: 1, date: 1, slug: 1, } });
 
-      // Log the fetched post
-    console.log('Fetched post:', post);
-
     // If the post is not found, log an error and throw an exception
     if (!post) {
       console.error('Post not found for slug:', params?.postSlug);
@@ -94,7 +98,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const article = { 
       ...restOfPost, 
       _id: _id.toString(),
-      date: date.toISOString() // Convert the Date to an ISO string
+      date: date.toString() // Convert the Date to an ISO string
     };
 
     // Return the fetched post data as props along with revalidation settings
