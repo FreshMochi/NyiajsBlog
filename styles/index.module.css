@@ -1,0 +1,128 @@
+.container {
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+
+.heroContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1frs);
+    width: 100%;
+    position: relative; /* Establishes a stacking context */
+}
+
+.iconSVG, .heroContent {
+    grid-column: 1; /* Places all elements in the first (and only) column */
+    grid-row: 1; /* Places all elements in the first (and only) row */
+    place-self: center center; /* Centers elements both horizontally and vertically */
+}
+
+.heroBG {
+    grid-column: 1 / -1; /* Span across all columns */
+    width: 100%;
+}
+
+.iconSVG {
+    position: absolute;
+    transform: translateX(-5em);
+    z-index: 1; /* Ensures it is layered above the hero background image */
+    width: 120px; /* Width of the icon */
+    height: 120px; /* Height of the icon */
+}
+
+.heroContent {
+    position: absolute;
+    transform: translateX(5em);
+    z-index: 1; 
+}
+
+
+.heroContent p {
+    font-size: 32px;
+}
+
+/* Rest of your CSS */
+
+
+.contentPrint{
+    width: 80%;
+    margin: auto auto 40px auto;
+    align-content: center;
+    text-align: left;
+}
+
+.contentSec00{
+    margin: 60px 0;
+}
+
+
+.contentSec01{
+    width: 90%;
+    margin: 40px auto 0 auto;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: black;
+    padding: 5px 40px 30px 40px;
+}
+
+.techStack {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    height: inherit;
+    justify-content: center;
+}
+
+@media (min-width: 767px ) {
+    .contentBody {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .iconSVG{
+        height: 240px;
+        width: 240px;
+        transform: translateX(-10em);
+    }
+
+    .contentSec00, .contentSec01{
+        width: 90%;
+        margin: 60px auto 0 auto;
+    }
+
+    .contentPrint {
+        display: flex;
+        width: 96%;
+    }
+
+    .contentPrint p {
+        margin: 0 30px;
+    }
+
+}
+
+@media (min-width: 1000px ) {
+    .contentBody{
+        height: 90vh;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-flow: row;
+    }
+
+    .contentPrint{
+        flex-flow: column;
+        margin: 0 auto
+    }
+}

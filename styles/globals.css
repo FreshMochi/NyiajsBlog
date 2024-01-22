@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 117,97,60, 1;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(0deg, rgba(23, 23, 23, 1) 1%, 
+  rgba(32, 25, 11, 1) 9%, 
+  rgb(26, 17, 1) 90%, 
+  rgb(32, 25, 11) 100%);
+    overflow-x: hidden;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+.appContainer {
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
