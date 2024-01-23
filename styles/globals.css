@@ -23,6 +23,8 @@ body {
   rgb(26, 17, 1) 90%, 
   rgb(32, 25, 11) 100%);
     overflow-x: hidden;
+    min-height: 100vh;
+    background-repeat: no-repeat;
 }
 
 h1 {
